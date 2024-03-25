@@ -1,0 +1,74 @@
+<archetype-descriptor
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+        name="tsm-archetype-id">
+
+    <requiredProperties>
+        <requiredProperty key="package">
+            <defaultValue>com.tsm</defaultValue>
+<!--            <validationRegex></validationRegex>-->
+        </requiredProperty>
+        <requiredProperty key="groupId">
+            <defaultValue>com.tsm</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="artifactId">
+            <defaultValue>wfmt-service</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="version">
+            <defaultValue>0.0.1-SNAPSHOT</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="springBootVersion">
+            <defaultValue>2.7.7</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="serverPort">
+            <defaultValue>8090</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+    <fileSets>
+
+<!--    filtered -> placeholders will be substituted with provided or default value-->
+
+        <!--    main java-->
+        <fileSet packaged="true" filtered="true" encoding="UTF-8">
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+        </fileSet>
+        <!--    main resources-->
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/main/resources</directory>
+            <include>**/*.*</include>
+            <excludes>
+                <exclude>**/*.jpg</exclude>
+                <exclude>banner.txt</exclude>
+            </excludes>
+        </fileSet>
+<!--     below files will be excluded to replace filter-->
+        <fileset encoding="UTF-8">
+            <directory>src/main/resources</directory>
+            <include>banner.txt</include>
+            <excludes>
+                <exclude>**/*.*</exclude>
+            </excludes>
+        </fileset>
+
+<!--    test java-->
+        <fileSet  packaged="true" filtered="true" encoding="UTF-8">
+            <directory>src/test/java</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+        </fileSet>
+    <!--    test resources -->
+        <fileSet encoding="UTF-8">
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <!-- <modules>
+    <module name="sub-module"></module>
+    </modules>-->
+</archetype-descriptor>
